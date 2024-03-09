@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:forecasting/constants/text_constants.dart';
-import 'package:forecasting/screens/home_screen.dart';
+import 'package:forecasting/screens/onboarding_screen.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,10 +17,10 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (ctx) => const HomeScreen(),
+          builder: (ctx) => const OnBoardingScreen(),
         ),
       );
     });
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +47,9 @@ class _SplashScreenState extends State<SplashScreen>
             ),
             GradientText(TextConstants.splashText,
                 style: const TextStyle(
-                    fontSize: 45.82, fontWeight: FontWeight.w900),
+                  fontSize: 45.82,
+                  fontWeight: FontWeight.w900,
+                ),
                 gradientDirection: GradientDirection.ltr,
                 gradientType: GradientType.linear,
                 colors: const [
